@@ -1,2 +1,2 @@
 [all]
-54.234.214.118
+ec2-54-234-214-118.compute-1.amazonaws.com
