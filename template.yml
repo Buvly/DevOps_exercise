@@ -8,8 +8,8 @@ Resources:
       SecurityGroups:
         - !Ref InstanceSecurityGroup
       KeyName: udacity
-      ImageId: 'ami-06b09bfacae1453cb'
-      InstanceType: t3.micro
+      ImageId: 'ami-053b0d53c279acc90'
+      InstanceType: t2.micro
   
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
