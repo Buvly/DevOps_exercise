@@ -42,7 +42,7 @@ jobs:
 
   configure_infrastructure:
     docker:
-      - image: python:3.7-alpine3.11
+      - image: buvly/aws-node
     steps:
       - checkout
       - add_ssh_keys:
@@ -66,6 +66,8 @@ workflows:
   my_workflow:
     jobs:
       - create_infrastructure
-      - configure_infrastructure
+      - configure_infrastructure:
+        requires:
+          - create_infrastructure
 
         
