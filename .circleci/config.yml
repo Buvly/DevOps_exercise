@@ -55,17 +55,14 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
-            aws ec2 describe-instances --region us-east-1 --query 'Reservations[*].Instances[*].PublicIpAddress' --output text >> inventory.txt
             ansible-playbook main.yml -i inventory.txt
-
-
 
 
 
 workflows:
   my_workflow:
     jobs:
-      - create_infrastructure
-      # - configure_infrastructure
+      # - create_infrastructure
+      - configure_infrastructure
 
         
