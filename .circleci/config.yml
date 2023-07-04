@@ -52,9 +52,6 @@ jobs:
           command: |
             # install the dependencies needed for your playbook
             pip install ansible 
-            sudo apt-get install openssh-server
-            sudo systemctl enable ssh --now
-            sudo systemctl start ssh
       - run:
           name: Configure server
           command: |
