@@ -1,2 +1,2 @@
-[all]
-ec2-34-226-122-193.compute-1.amazonaws.com
+[ubuntu]
+34.226.122.193
