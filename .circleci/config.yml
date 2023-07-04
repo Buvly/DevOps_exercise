@@ -42,7 +42,7 @@ jobs:
 
   configure_infrastructure: 
     docker:
-      - image: cimg/python:3.11.4
+      - image: buvly/aws-node
     steps:
       - checkout
       - add_ssh_keys:
