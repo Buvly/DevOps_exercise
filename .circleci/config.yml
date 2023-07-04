@@ -42,7 +42,7 @@ jobs:
 
   configure_infrastructure: 
     docker:
-      - image: 3.12.0b3-alpine3.18
+      - image: cimg/python-3.10.12-browsers
     steps:
       - checkout
       - add_ssh_keys:
