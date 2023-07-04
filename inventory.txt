@@ -1,2 +1,2 @@
 [ubuntu]
-3.94.201.165
+ec2-3-94-201-165.compute-1.amazonaws.com
