@@ -54,7 +54,7 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
-            ansible-playbook main.yml -i inventory.txt
+            ansible-playbook -i inventory.txt main.yml -vv
 
 
 
