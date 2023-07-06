@@ -40,30 +40,54 @@ jobs:
       - destroy_environment
 
 
-  configure_infrastructure:
+  configure_infrastructure: 
     docker:
-      - image: python:3.7-alpine3.11
+      - image: circleci/python:3.8
     steps:
       - checkout
       - add_ssh_keys:
-          fingerprints: 
-            - "4a:9a:17:27:76:3a:6d:27:ac:18:c3:45:18:6a:65:44"
+          fingerprints: ["4a:9a:17:27:76:3a:6d:27:ac:18:c3:45:18:6a:65:44"] # You can get this ID in the section where you registered the SSH Key
       - run:
-          name: Install Ansible
+          name: Install dependencies
           command: |
-            apk add --update ansible
+            # install the dependencies needed for your playbook
+            pip install ansible 
       - run:
-          name: Run Playbook and Configure server
+          name: Configure server
           command: |
-            ansible-playbook main.yml -i inventory.txt
-
-
-
+            echo $PATH
+            
+            ansible-playbook -i inventory.txt main.yml
+        
+  smoke_test:
+    docker:
+      - image: alpine:latest
+    steps:
+      - run:
+          name: install curl
+          command: |
+            apk add --update curl
+      - run:
+          name: smoke test
+          command: |
+            URL="https://blog.udacity.com"
+            # Test if website exists
+            if curl -s --head ${URL}
+            then
+              return 0
+            else
+              return 1
+            fi
+      - destroy_environment
 
 
 workflows:
+  # Name the workflow "welcome"
   my_workflow:
+    # Run the welcome/run job in its own container
     jobs:
       # - create_infrastructure
-      - configure_infrastructure
+      # - configure_infrastructure
+      - smoke_test
+
         

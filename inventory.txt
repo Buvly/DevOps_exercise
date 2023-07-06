@@ -1,2 +1,2 @@
-[all]
-ec2-54-234-214-118.compute-1.amazonaws.com
+[ubuntu]
+ec2-3-93-3-236.compute-1.amazonaws.com
